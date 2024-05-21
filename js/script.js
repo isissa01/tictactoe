@@ -14,17 +14,21 @@ const handleClick = (event) =>{
         console.log("Square already filled")
 
     }else{
-        console.log("filling square")
         const span = document.createElement("span")
         span.innerText = currentPlayer;
         square.appendChild(span)
 
         if(checkWin(currentPlayer) == 1){
-            console.log()
             gameOver.style.display = "flex";
             document.querySelector(".winner-text").innerText = `Player ${currentPlayer} Wins`;
+            
         }
         else {
+            if(checkGameOver() ==1) {
+                gameOver.style.display = "flex";
+                document.querySelector(".winner-text").innerText = `The Game was a draw`;
+            
+            }
             (currentPlayer == player1)? currentPlayer = player2 : currentPlayer = player1;
             playerText.innerHTML = `It's player <span>${currentPlayer}'s</span> turn to play` ;
         }
@@ -79,4 +83,15 @@ function startGame(){
 }
 function choosePlayer(){
     (Math.random() > 0.5)? currentPlayer = player2 : currentPlayer = player1 ;
+}
+function checkGameOver(){
+    const emptySquares = [];
+     squares.forEach(square => {
+        
+        square.innerText == "" ? emptySquares.push(square) : square;
+    })
+    if(emptySquares.length == 0 ) return 1 
+    else return 0;
+   
+
 }

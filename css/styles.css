@@ -56,7 +56,7 @@ button:hover{
     top: 0;
     left: 0;
     z-index: 5;
-    background-color: rgba(220, 20, 60, 0.833);
+    background-color: rgba(122, 0, 24, 0.939);
     align-items: center;
     justify-content: center;
     color: white;
@@ -64,13 +64,19 @@ button:hover{
 
 }
 h1{
-    font-size: 4em;
+    font-size: 2rem;
     /* padding: 10px */
 }
 .winner-text{
-    padding : 10px
+    padding : 10px;
+    font-size: 3rem;
 }
 
 .player span{
     color: red;
+}
+.player{
+    /* color: white; */
+    font-size: 1.5rem;
+
 }
